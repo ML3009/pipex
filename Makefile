@@ -6,7 +6,7 @@
 #    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/01/20 10:07:05 by ml               ###   ########.fr        #
+#    Updated: 2023/01/24 19:41:53 by ml               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,8 @@ PATH_SRC = src
 
 PATH_LIB = lib_dil
 
-SRC = $(PATH_SRC)/pipe.c\
-	  $(PATH_SRC)/child.c\
-	  $(PATH_SRC)/parent.c\
-	  $(PATH_SRC)/execve.c\
+SRC = $(PATH_SRC)/ft_init.c\
+	  $(PATH_SRC)/ft_pipe.c\
 	  
 LIB = $(PATH_LIB)/libft.a
 

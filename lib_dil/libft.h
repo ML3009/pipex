@@ -6,7 +6,7 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/19 10:33:33 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/24 19:46:34 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		ft_memcmp( void *s1, void *s2, size_t n);
 char	*ft_strnstr( char *big, char *little, size_t len);
 int		ft_atoi( char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strdup( char *s);
+char	*ft_strdup( char *src);
 char	*ft_substr(char *s, int start, int len);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char *s1, char *set);

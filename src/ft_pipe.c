@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 17:14:11 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 19:46:53 by ml               ###   ########.fr       */
+/*   Created: 2023/01/24 19:36:32 by ml                #+#    #+#             */
+/*   Updated: 2023/01/24 19:48:13 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/pipex.h"
 
-char    *ft_strjoin(char *s1, char *s2)
+void    ft_open_files(t_vars *vars)
 {
-    char    *strings;
-    size_t  i;
-    size_t  j;
-
-    strings = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-    if (!strings)
-        return(NULL);
-    i = 0;
-    while (s1[i])
+    vars->infile = open(vars->av[1], O_RDONLY);
+    if (vars->infile == -1)
     {
-        strings[i] = s1[i];
-        i++;
+        ft_putstr_fd("Error : wrong input file", 2);
+        exit(EXIT_FAILURE);
     }
-    j = 0;
-    while (s2[j])
+    vars->outfile = open(vars->av[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (vars->outfile == -1)
     {
-        strings[i] = s2[j];
-        i++;
-        j++;
+        ft_putstr_fd("Error : wrong onput file", 2);
+        exit(EXIT_FAILURE);
     }
-    strings[i] = '\0';
-    return(strings);
 }

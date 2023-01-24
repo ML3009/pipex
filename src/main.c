@@ -6,19 +6,18 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 09:55:38 by ml                #+#    #+#             */
-/*   Updated: 2023/01/20 09:57:39 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/24 19:51:08 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/pipex.h"
+
 int main(int ac, char **av, char **envp)
 {
-    int fd1;
-    int fd2;
+    t_vars   vars;
 
-    fd1 = open(av[1], O_RDONLY);
-    fd2 = open(av[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
-    if (fd1 < 0 || fd2 < 0)
-        return (-1);
-    pipex(fd1, fd2, av, envp);
-    return(0);
+    if(ac != 5)
+        ft_putstr_fd("Error : wrong numbers of arguments", 2);
+    ft_open_files(&vars);
+    ft_init(&vars, ac, av, envp);
 }

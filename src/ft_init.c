@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 17:17:47 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 19:44:34 by ml               ###   ########.fr       */
+/*   Created: 2023/01/24 19:29:59 by ml                #+#    #+#             */
+/*   Updated: 2023/01/24 19:37:36 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/pipex.h"
 
-char    *ft_strdup(char *src)
+void    ft_init(t_vars *vars, int ac, char **av, char **envp)
 {
-    char    *new;
-    size_t  i;
-
-    i = 0;
-    new = (char *)malloc(ft_strlen(src) + 1);
-    if (!new)
-        return (NULL);
-    while(src[i])
-    {
-        new[i] = src[i];
-        i++;
-    }
-    new[i] = '\0';
-    return (new);
+    vars->ac = ac;
+    vars->av = av;
+    vars->envp = envp;
 }

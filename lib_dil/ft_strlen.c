@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 13:07:12 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/18 14:54:04 by mvautrot         ###   ########.fr       */
+/*   Created: 2023/01/24 17:22:56 by ml                #+#    #+#             */
+/*   Updated: 2023/01/24 17:23:27 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/pipex.h"
 
 int	ft_strlen(char *str)
 {
