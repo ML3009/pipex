@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 19:49:06 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/26 09:24:45 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,18 @@ typedef struct s_vars
     char    **envp;
     char    **av_cmd1;
     char    **av_cmd2;
+    int cmd1;
+    int cmd1_v2;
+    int cmd2;
+    int cmd2_v2;
     int infile;
     int outfile;
-    int pipe_end[2];
+    int pipe_fd[2];
 }   t_vars;
 
-void    ft_init(t_vars *vars, int ac, char **av, char **envp);
-void    ft_open_files(t_vars *vars);
+void    ft_init(t_vars *var, int ac, char **av, char **envp);
+void    ft_open_files(t_vars *var);
+void    ft_create_pipe(t_vars *var);
+void    ft_create_fork(t_vars *var);
+void    ft_create_dup2_cmd1(t_vars *var);
+void    ft_create_dup2_cmd2(t_vars *var);

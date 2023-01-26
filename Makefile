@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/01/24 19:41:53 by ml               ###   ########.fr        #
+#    Updated: 2023/01/26 07:22:22 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ PATH_LIB = lib_dil
 
 SRC = $(PATH_SRC)/ft_init.c\
 	  $(PATH_SRC)/ft_pipe.c\
-	  
+	  $(PATH_SRC)/main.c
+
 LIB = $(PATH_LIB)/libft.a
 
 OBJ = $(SRC:.c=.o)
@@ -30,7 +31,7 @@ OBJ = $(SRC:.c=.o)
 all : $(LIB) $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) src/main.c -o $(NAME) $(OBJ) $(LIB)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 	@echo "\n Compilation OK\n"
 
 .c.o :
@@ -40,7 +41,7 @@ $(LIB) :
 	@make -s -C $(PATH_LIB)
 
 clean :
-	make - C $(PATH_LIB) clean
+	make -C $(PATH_LIB) clean
 	rm -f $(OBJ)
 
 fclean : clean
@@ -50,4 +51,3 @@ fclean : clean
 re : fclean all
 
 .PHONY : all clean fclen re
-	

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:29:59 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 19:37:36 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/26 08:29:33 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void    ft_init(t_vars *vars, int ac, char **av, char **envp)
+void    ft_init(t_vars *var, int ac, char **av, char **envp)
 {
-    vars->ac = ac;
-    vars->av = av;
-    vars->envp = envp;
+    var->ac = ac;
+    var->av = av;
+    var->envp = envp;
 }
