@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_execute.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 19:29:59 by ml                #+#    #+#             */
-/*   Updated: 2023/01/30 18:45:35 by ml               ###   ########.fr       */
+/*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
+/*   Updated: 2023/01/30 18:44:44 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void    ft_init(t_vars *var, int ac, char **av, char **envp)
+void    ft_execute_cmd(t_vars *var)
 {
-    var->ac = ac;
-    var->av = av;
-    var->envp = envp;
+
+    //split  join path etc etc etc 
 }
