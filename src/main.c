@@ -6,7 +6,7 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 09:55:38 by ml                #+#    #+#             */
-/*   Updated: 2023/01/30 18:45:45 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/30 18:48:54 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int main(int ac, char **av, char **envp)
     }  
     close(var.pipe_fd[0]);
     close(var.pipe_fd[1]); 
-    waitpid(var.child1, NULL, 0); // attendre la fin du processus
+    waitpid(var.child1, NULL, 0); // attendre fin exec child process // evite process zombie
     waitpid(var.child2, NULL, 0); 
 }

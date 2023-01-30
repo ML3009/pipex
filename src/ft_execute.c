@@ -6,7 +6,7 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/01/30 18:44:44 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/30 18:53:42 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void    ft_execute_cmd(t_vars *var)
 {
 
-    //split  join path etc etc etc 
+    //split  join path etc etc etc = env | def variable PATH | 
 }

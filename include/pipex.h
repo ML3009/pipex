@@ -6,7 +6,7 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/01/30 18:43:26 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/30 18:46:56 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,4 @@ void    ft_create_pipe(t_vars *var);
 void    ft_create_fork1(t_vars *var);
 void    ft_create_fork2(t_vars *var);
 void    ft_first_dup(t_vars *var);
-void    fft_second_dup(t_vars *var);
+void    ft_second_dup(t_vars *var);
