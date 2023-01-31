@@ -6,7 +6,7 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 09:55:38 by ml                #+#    #+#             */
-/*   Updated: 2023/01/30 18:48:54 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/31 16:21:10 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int main(int ac, char **av, char **envp)
     if(var.child1 == 0)
     {
         ft_first_dup(&var);
-        ft_execute_cmd(&var);
-    }     
+        ft_execute_cmd_1(&var);
+    } /*else ? gestion process parent ?*/    
     ft_create_fork2(&var);
     if(var.child2 == 0)
     {
         ft_second_dup(&var);
-        ft_execute_cmd(&var);
+        ft_execute_cmd_2(&var);
     }  
     close(var.pipe_fd[0]);
     close(var.pipe_fd[1]); 
