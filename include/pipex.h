@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/01/31 16:19:37 by ml               ###   ########.fr       */
+/*   Updated: 2023/02/15 08:09:40 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_vars
     int infile;
     int outfile;
     int pipe_fd[2];
-    int child1;
-    int child2;
+    pid_t child1;
+    pid_t child2;
 }   t_vars;
 
 void    ft_init(t_vars *var, int ac, char **av, char **envp);
