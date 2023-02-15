@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/24 19:46:34 by ml               ###   ########.fr       */
+/*   Updated: 2023/02/15 12:07:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr( char *s, int c);
 char	*ft_strrchr( char *s, int c);
-int		ft_strncmp( char *s1, char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strcmp( char *s1, char *s2);
 void	*ft_memchr( void *s, int c, size_t n);
 int		ft_memcmp( void *s1, void *s2, size_t n);

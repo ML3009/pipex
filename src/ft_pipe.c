@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:36:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/15 08:27:56 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:02:37 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,12 @@ void    ft_create_fork1(t_vars *var)
 
 void    ft_first_dup(t_vars *var)
 {
-    var->infile = open(var->av[1], O_RDONLY | O_CREAT);
+    var->infile = open(var->av[1], O_RDONLY);
     if (var->infile == -1)
     {
         ft_putstr_fd("\nError : wrong input file\n", 2);
         exit(EXIT_FAILURE);
     }
-    ft_printf ("Start of problem");
     if (dup2(var->pipe_fd[1], STDOUT_FILENO) == -1)
     {
         perror("\ndup2_firstcmd 1\n");
@@ -55,7 +54,8 @@ void    ft_first_dup(t_vars *var)
         exit(EXIT_FAILURE);
     }
     close(var->pipe_fd[0]);
-   // close(var->infile);
+    close(var->infile);
+    close(var->pipe_fd[1]);
 }
 
 void    ft_create_fork2(t_vars *var)
