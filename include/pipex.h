@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/15 14:43:50 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:28:49 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,4 @@ void    ft_first_dup(t_vars *var);
 void    ft_second_dup(t_vars *var);
 void    ft_execute_cmd(t_vars *var);
 char   *ft_find_path(char **cmd, char **envp);
-void    ft_execute_cmd_1(t_vars *var);
-void    ft_execute_cmd_2(t_vars *var);
 void	ft_free_tab(char **tab);
