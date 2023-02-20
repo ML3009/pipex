@@ -6,24 +6,21 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:36:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/15 15:02:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:44:20 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-// creation du tube
-
 void    ft_create_pipe(t_vars *var)
 {
-    if (pipe (var->pipe_fd)== -1) // creation tube
+    if (pipe (var->pipe_fd)== -1) 
     {
         perror("\npipe\n");
         exit(EXIT_FAILURE);
     }
 }
 
-// creation du fork qui duplique le processus apelant(parent process) en child process.
 void    ft_create_fork1(t_vars *var)
 {
 

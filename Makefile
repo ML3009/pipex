@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/01/31 11:12:40 by ml               ###   ########.fr        #
+#    Updated: 2023/02/20 14:05:42 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ PATH_SRC = src
 
 PATH_LIB = lib_dil
 
-SRC = $(PATH_SRC)/ft_init.c\
+SRC = $(PATH_SRC)/ft_gestion.c\
 	  $(PATH_SRC)/ft_pipe.c\
-	  $(PATH_SRC)/ft_execute.c\
+	  $(PATH_SRC)/ft_path.c\
 	  $(PATH_SRC)/main.c
 
 LIB = $(PATH_LIB)/libft.a
