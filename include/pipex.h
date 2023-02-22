@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/21 14:24:58 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:24:41 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ typedef struct s_vars
     pid_t child2;
 }   t_vars;
 
-void    ft_init(t_vars *var, int ac, char **av);
+void    ft_init(t_vars *var, int ac, char **av, char **envp);
 void    ft_create_pipe(t_vars *var);
 void    ft_create_fork1(t_vars *var);
 void    ft_create_fork2(t_vars *var);
+void    ft_child1(t_vars *var);
+void    ft_child2(t_vars *var);
 void    ft_first_dup(t_vars *var);
 void    ft_second_dup(t_vars *var);
 void    ft_execute_cmd(t_vars *var);
 char   *ft_find_path(char **cmd, char **envp);
-void	ft_free_tab(char **tab);

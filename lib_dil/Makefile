@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:27:10 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/19 10:33:28 by ml               ###   ########.fr        #
+#    Updated: 2023/02/22 17:24:25 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRC=ft_isalpha.c \
 	ft_putnbr_fd.c\
 	ft_putstr_fd.c\
 	ft_strcmp.c\
+	ft_free_tab.c\
 
 OBJ=$(SRC:.c=.o)
 
