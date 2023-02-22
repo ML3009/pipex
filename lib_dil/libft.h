@@ -6,22 +6,24 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/02/15 12:07:21 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/21 14:26:09 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <unistd.h>
-# include <stdint.h>
-# include <sys/types.h>
-# include <sys/stat.h>
+# include <assert.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdint.h>
+# include <string.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <sys/stat.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/02/20 16:36:49 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:41:18 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,11 @@ char   *ft_find_path(char **cmd, char **envp)
     {
         join = ft_strjoin(cmd_path[i], "/");
         search = ft_strjoin(join, cmd[0]);
-        //free(join);
         if (access(search, F_OK) == 0)
             return(search);
-
         free(search);
         i++;
     }
-    ft_free_tab(cmd_path);
+    free(cmd_path);
     return (0);
 }
-
-
-

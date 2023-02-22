@@ -6,13 +6,13 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/02/20 14:05:42 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/02/22 15:08:19 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
-cc = @cc
+cc = cc
 
 CFLAGS = -Wall -Werror -Wextra -g3
 

@@ -6,17 +6,10 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/15 16:28:49 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/02/21 14:24:58 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <assert.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
 #include "../lib_dil/libft.h"
 
 typedef struct s_vars
