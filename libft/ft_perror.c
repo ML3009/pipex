@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_perror.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 17:17:47 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 19:44:34 by ml               ###   ########.fr       */
+/*   Created: 2023/03/03 10:46:44 by mvautrot          #+#    #+#             */
+/*   Updated: 2023/03/03 10:47:17 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strdup(char *src)
+void	ft_perror(char *str)
 {
-    char    *new;
-    size_t  i;
-
-    i = 0;
-    new = (char *)malloc(ft_strlen(src) + 1);
-    if (!new)
-        return (NULL);
-    while(src[i])
-    {
-        new[i] = src[i];
-        i++;
-    }
-    new[i] = '\0';
-    return (new);
+	perror(str);
+	exit(EXIT_FAILURE);
 }

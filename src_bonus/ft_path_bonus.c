@@ -1,50 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path.c                                          :+:      :+:    :+:   */
+/*   ft_path_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/03 13:14:26 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:27:40 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
-
-void	ft_first_cmd(char **av, int *pipe_fd, char **envp)
-{
-	int	infile;
-
-	infile = open(av[1], O_RDONLY);
-	if (infile == -1)
-		ft_perror("open");
-	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
-		ft_perror("dup2");
-	if (dup2(infile, STDIN_FILENO) == -1)
-		ft_perror("dup2");
-	close(infile);
-	close(pipe_fd[0]);
-	close(pipe_fd[1]);
-	ft_execute(av[2], envp);
-}
-
-void	ft_scd_cmd(char **av, int *pipe_fd, char **envp)
-{
-	int	outfile;
-
-	outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (outfile == -1)
-		ft_perror("open");
-	if (dup2(pipe_fd[0], STDIN_FILENO) == -1)
-		ft_perror("dup2");
-	if (dup2(outfile, STDOUT_FILENO) == -1)
-		ft_perror("dup2");
-	close(outfile);
-	close(pipe_fd[0]);
-	close(pipe_fd[1]);
-	ft_execute(av[3], envp);
-}
+#include "../include/pipex_bonus.h"
 
 char	*ft_find_path(char **cmd, char **envp)
 {
@@ -96,3 +62,77 @@ void	ft_execute(char *av, char **envp)
 	}
 	ft_free_tab(cmd);
 }
+
+/*void	ft_here_doc(char **av)
+{
+	int	pipe_fd[2];
+	pid_t	pid;
+
+	if (pipe (pipe_fd) == -1)
+	{
+		perror("pipe");
+		exit(EXIT_FAILURE);
+	}
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
+	if (pid == 0)
+	{
+		close(pipe_fd[0]);
+		ft_put_here_doc(av[2], pipe_fd);
+		//free(line);
+	}
+	else
+	{
+		close(pipe_fd[1]);
+		dup2(pipe_fd[0], STDIN_FILENO);
+		waitpid(pid, NULL, 0);
+	}
+}
+
+void	ft_put_here_doc(char *av, int pipe_fd[2])
+{
+	char	*ret;
+	size_t	len;
+
+	len = ft_strlen(av);
+	while (1)
+	{
+
+		ft_printf("pipe heredoc> ");
+		ft_printf("%s\n", av);
+		ret = get_next_line(STDIN_FILENO);
+		ft_printf("%s\n", av);
+		//ft_putstr_fd(line, pipe_fd[1]);
+		//ft_printf("%s\n", line);
+		if (!ret)
+		{
+			close(pipe_fd[1]);
+			close(pipe_fd[0]);
+			exit(EXIT_FAILURE);
+		}
+		if (ret[len] == '\n' && av && !ft_strncmp(ret, av, len) == 0)
+		{
+			//free(ret);
+			close(pipe_fd[1]);
+			close(pipe_fd[0]);
+			exit(EXIT_SUCCESS);
+		}
+		ft_putstr_fd(ret, pipe_fd[1]);
+		free(ret);
+		//free(ret);
+		//	break;
+		ft_printf("%s\n", av[2]);
+	}
+
+}
+
+	// my first cmd take in STDIN = total of gnl;
+	// pipe
+
+*/
+
+//./pipex "/dev/random" cat cat "/dev/stdin" ???????

@@ -6,22 +6,18 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/02/22 17:24:09 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/03 10:47:34 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <assert.h>
-# include <fcntl.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdint.h>
 # include <string.h>
-# include <sys/types.h>
-# include <sys/wait.h>
 # include <sys/stat.h>
 # include <unistd.h>
 
@@ -70,6 +66,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char *s1, char *set);
 char	**ft_split( char *s, char c);
 char	*ft_itoa(int n);
+void	ft_perror(char *str);
 char	*ft_strmapi(char *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putendl(char *s);

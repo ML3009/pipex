@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 17:22:56 by ml                #+#    #+#             */
-/*   Updated: 2023/01/24 17:23:27 by ml               ###   ########.fr       */
+/*   Created: 2023/02/22 17:23:37 by mvautrot          #+#    #+#             */
+/*   Updated: 2023/03/03 11:14:32 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "libft.h"
 
-int	ft_strlen(char *str)
+void	ft_free_tab(char **tab)
 {
 	int	i;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str && str[i])
+	while (tab[i])
+	{
+		free (tab[i]);
 		i++;
-	return (i);
+	}
+	free (tab);
 }

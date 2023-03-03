@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execve.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 09:37:54 by ml                #+#    #+#             */
-/*   Updated: 2023/01/20 10:13:24 by ml               ###   ########.fr       */
+/*   Created: 2023/01/24 17:22:56 by ml                #+#    #+#             */
+/*   Updated: 2023/03/03 11:00:44 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int execve(const char *path char *const argv[], char *envp[])
-{
-    // path = the path to our command
-    // argv[] = the args the cmd needs for ex : ls -l 
-    // => use split 
-    // envp = the environmental variable = type env in terminal and
-    // find PATH. use split with ":" as a delimiter    
-}
+#include "../include/pipex.h"
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str && str[i])
+		i++;
+	return (i);
+}

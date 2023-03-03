@@ -1,1 +1,9 @@
-10
+include
+infile
+libft
+Makefile
+outfile
+pipex
+pipex_bonus
+src
+src_bonus

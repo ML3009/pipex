@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   child.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 09:30:26 by ml                #+#    #+#             */
-/*   Updated: 2023/01/20 09:38:55 by ml               ###   ########.fr       */
+/*   Created: 2023/01/24 17:17:47 by ml                #+#    #+#             */
+/*   Updated: 2023/03/03 11:15:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//add protection if dup2() < 0
-// dup2 close stdin, fd1 become the new stdin
-child_process(fd1, cmd1)
+#include "libft.h"
+
+char	*ft_strdup(char *src)
 {
-dup2(fd1, STDIN_FILENO); // we want fd1 to be execve()input
-dup2(end[1], STDOUT_FILENO); // we want end[1] to be execve()stdout
-close (end[0]) // always close the end of the pipe you don't use.
-close(fd1); 
-// execve function for each possible path
-exit(EXIT_FAILURE);
+	char	*new;
+	size_t	i;
+
+	i = 0;
+	new = (char *)malloc(ft_strlen(src) + 1);
+	if (!new)
+		return (NULL);
+	while (src[i])
+	{
+		new[i] = src[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }

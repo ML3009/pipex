@@ -6,36 +6,24 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/02/22 17:24:41 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/03 12:54:58 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib_dil/libft.h"
+#ifndef PIPEX_H
+# define PIPEX_H
 
-typedef struct s_vars
-{
-    int ac;
-    char    **av;
-    char    **envp;
-    char    *path;
-    char    *path_1;
-    char    *path_2;
-    char    **cmd_1;
-    char    **cmd_2;
-    int infile;
-    int outfile;
-    int pipe_fd[2];
-    pid_t child1;
-    pid_t child2;
-}   t_vars;
+# include<sys/types.h>
+# include<sys/wait.h>
+# include<assert.h>
+# include<fcntl.h>
+# include "../libft/libft.h"
 
-void    ft_init(t_vars *var, int ac, char **av, char **envp);
-void    ft_create_pipe(t_vars *var);
-void    ft_create_fork1(t_vars *var);
-void    ft_create_fork2(t_vars *var);
-void    ft_child1(t_vars *var);
-void    ft_child2(t_vars *var);
-void    ft_first_dup(t_vars *var);
-void    ft_second_dup(t_vars *var);
-void    ft_execute_cmd(t_vars *var);
-char   *ft_find_path(char **cmd, char **envp);
+void	ft_pipex(char **av, char **envp);
+void	ft_first_cmd(char **av, int *pipe_fd, char **envp);
+void	ft_scd_cmd(char **av, int *pipe_fd, char **envp);
+char	*ft_find_path(char **cmd, char **envp);
+void	ft_execute(char *av, char **envp);
+void	ft_gestion(int	*pipe_fd, pid_t pid1, pid_t pid2);
+
+#endif
