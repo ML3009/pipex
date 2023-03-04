@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/03 13:14:26 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/04 15:46:05 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_scd_cmd(char **av, int *pipe_fd, char **envp)
 {
 	int	outfile;
 
-	outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (outfile == -1)
 		ft_perror("open");
 	if (dup2(pipe_fd[0], STDIN_FILENO) == -1)
