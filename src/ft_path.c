@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/04 15:46:05 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:53:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,24 @@ void	ft_scd_cmd(char **av, int *pipe_fd, char **envp)
 	ft_execute(av[3], envp);
 }
 
+char	**ft_path(char **envp)
+{
+	int	i;
+	char	**cmd_path;
+
+	i = 0;
+	while (envp[i])
+	{
+		if (!ft_strncmp("PATH", envp[i], 4))
+		{
+			cmd_path = ft_split(envp[i] + 5, ':');
+			return(cmd_path);
+		}
+		i++;
+	}
+	return(NULL);
+}
+
 char	*ft_find_path(char **cmd, char **envp)
 {
 	int		i;
@@ -53,10 +71,14 @@ char	*ft_find_path(char **cmd, char **envp)
 	char	*search;
 	char	**cmd_path;
 
-	i = 0;
-	while (ft_strncmp("PATH", envp[i], 4))
-		i++;
-	cmd_path = ft_split(envp[i] + 5, ':');
+
+	cmd_path = ft_path(envp);
+	if (cmd_path == NULL)
+	{
+		ft_free_tab(cmd);
+		ft_putstr_fd("wrong path\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	while (cmd_path[i])
 	{

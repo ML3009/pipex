@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:54:32 by ml                #+#    #+#             */
-/*   Updated: 2023/03/04 15:39:19 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:40:48 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	ft_scd_cmd(char **av, int *pipe_fd, char **envp);
 char	*ft_find_path(char **cmd, char **envp);
 void	ft_execute(char *av, char **envp);
 void	ft_gestion(int	*pipe_fd, pid_t pid1, pid_t pid2);
+char	**ft_path(char **envp);
 
 #endif

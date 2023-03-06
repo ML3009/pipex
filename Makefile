@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/03/03 10:23:27 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/03/06 11:58:03 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,6 @@ fclean : clean
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
 
-re : fclean all
+re : fclean all bonus
 
 .PHONY : all clean fclean re

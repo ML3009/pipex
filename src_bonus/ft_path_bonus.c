@@ -6,11 +6,29 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/03 11:27:40 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:54:05 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex_bonus.h"
+
+char	**ft_path(char **envp)
+{
+	int	i;
+	char	**cmd_path;
+
+	i = 0;
+	while (envp[i])
+	{
+		if (!ft_strncmp("PATH", envp[i], 4))
+		{
+			cmd_path = ft_split(envp[i] + 5, ':');
+			return(cmd_path);
+		}
+		i++;
+	}
+	return(NULL);
+}
 
 char	*ft_find_path(char **cmd, char **envp)
 {
@@ -19,10 +37,13 @@ char	*ft_find_path(char **cmd, char **envp)
 	char	*search;
 	char	**cmd_path;
 
-	i = 0;
-	while (ft_strncmp("PATH", envp[i], 4))
-		i++;
-	cmd_path = ft_split(envp[i] + 5, ':');
+	cmd_path = ft_path(envp);
+	if (cmd_path == NULL)
+	{
+		ft_free_tab(cmd);
+		ft_putstr_fd("wrong path\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	while (cmd_path[i])
 	{
@@ -63,76 +84,10 @@ void	ft_execute(char *av, char **envp)
 	ft_free_tab(cmd);
 }
 
-/*void	ft_here_doc(char **av)
+int	here_or_not(char *av)
 {
-	int	pipe_fd[2];
-	pid_t	pid;
-
-	if (pipe (pipe_fd) == -1)
-	{
-		perror("pipe");
-		exit(EXIT_FAILURE);
-	}
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-	if (pid == 0)
-	{
-		close(pipe_fd[0]);
-		ft_put_here_doc(av[2], pipe_fd);
-		//free(line);
-	}
+	if (av && (ft_strcmp(av, "here_doc")) == 0)
+		return (6);
 	else
-	{
-		close(pipe_fd[1]);
-		dup2(pipe_fd[0], STDIN_FILENO);
-		waitpid(pid, NULL, 0);
-	}
+		return (5);
 }
-
-void	ft_put_here_doc(char *av, int pipe_fd[2])
-{
-	char	*ret;
-	size_t	len;
-
-	len = ft_strlen(av);
-	while (1)
-	{
-
-		ft_printf("pipe heredoc> ");
-		ft_printf("%s\n", av);
-		ret = get_next_line(STDIN_FILENO);
-		ft_printf("%s\n", av);
-		//ft_putstr_fd(line, pipe_fd[1]);
-		//ft_printf("%s\n", line);
-		if (!ret)
-		{
-			close(pipe_fd[1]);
-			close(pipe_fd[0]);
-			exit(EXIT_FAILURE);
-		}
-		if (ret[len] == '\n' && av && !ft_strncmp(ret, av, len) == 0)
-		{
-			//free(ret);
-			close(pipe_fd[1]);
-			close(pipe_fd[0]);
-			exit(EXIT_SUCCESS);
-		}
-		ft_putstr_fd(ret, pipe_fd[1]);
-		free(ret);
-		//free(ret);
-		//	break;
-		ft_printf("%s\n", av[2]);
-	}
-
-}
-
-	// my first cmd take in STDIN = total of gnl;
-	// pipe
-
-*/
-
-//./pipex "/dev/random" cat cat "/dev/stdin" ???????

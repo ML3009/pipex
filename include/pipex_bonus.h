@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:21:34 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/03/05 21:22:45 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:54:31 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ typedef struct s_pipe
 }	t_pipe;
 
 void	ft_pipex_bonus(char *av, char **envp);
-void	ft_first_dup(int infile);
-void	ft_last_dup(int outfile);
+void	ft_first_dup(char **av);
+void	ft_last_dup(char **av, char *cmd, int ac, char **envp);
 char	*ft_find_path(char **cmd, char **envp);
+char	**ft_path(char **envp);
 void	ft_execute(char *av, char **envp);
 void	ft_here_doc(char **av);
 void	ft_put_here_doc(char *av, int *pipe_fd);
+int		here_or_not(char *av);
 
 #endif
