@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 09:55:38 by ml                #+#    #+#             */
-/*   Updated: 2023/03/06 12:41:21 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:08:36 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char **av, char **envp)
 {
 	int	i;
+	t_pipe	pipex;
 
 	if (ac < here_or_not((av[1])))
 	{
@@ -24,16 +25,16 @@ int	main(int ac, char **av, char **envp)
 	if (ft_strcmp(av[1], "here_doc") == 0)
 	{
 		i = 3;
-		ft_here_doc(av);
+		ft_here_doc(av, &pipex);
 	}
 	else
 	{
 		i = 2;
-		ft_first_dup(av);
+		ft_first_dup(av, &pipex);
 	}
 	while (i < ac - 2)
-		ft_pipex_bonus(av[i++], envp);
-	ft_last_dup(av, av[i], ac, envp);
+		ft_pipex_bonus(av[i++], envp, &pipex);
+	ft_last_dup(av[ac - 1], av[i], envp, &pipex);
 	while (wait(NULL) != -1)
 		;
 	return (0);
