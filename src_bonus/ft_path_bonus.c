@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/06 16:54:05 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:12:33 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	**ft_path(char **envp)
 {
-	int	i;
+	int		i;
 	char	**cmd_path;
 
 	i = 0;
@@ -23,11 +23,11 @@ char	**ft_path(char **envp)
 		if (!ft_strncmp("PATH", envp[i], 4))
 		{
 			cmd_path = ft_split(envp[i] + 5, ':');
-			return(cmd_path);
+			return (cmd_path);
 		}
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }
 
 char	*ft_find_path(char **cmd, char **envp)
@@ -82,12 +82,4 @@ void	ft_execute(char *av, char **envp)
 		ft_perror("path");
 	}
 	ft_free_tab(cmd);
-}
-
-int	here_or_not(char *av)
-{
-	if (av && (ft_strcmp(av, "here_doc")) == 0)
-		return (6);
-	else
-		return (5);
 }

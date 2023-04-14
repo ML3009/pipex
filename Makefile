@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 09:59:07 by ml                #+#    #+#              #
-#    Updated: 2023/03/06 11:58:03 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/03/07 12:15:25 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRC = $(PATH_SRC)/ft_pipe.c\
 
 SRC_BONUS = $(PATH_SRC_BONUS)/ft_pipe_bonus.c\
 	  $(PATH_SRC_BONUS)/ft_path_bonus.c\
+	  $(PATH_SRC_BONUS)/ft_here_doc.c\
+	  $(PATH_SRC_BONUS)/ft_gestion.c\
 	  $(PATH_SRC_BONUS)/main_bonus.c
 
 LIB = $(PATH_LIB)/libft.a
@@ -64,6 +66,6 @@ fclean : clean
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
 
-re : fclean all bonus
+re : fclean all
 
 .PHONY : all clean fclean re

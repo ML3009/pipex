@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:43:48 by ml                #+#    #+#             */
-/*   Updated: 2023/03/06 16:53:54 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:08:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void	ft_first_cmd(char **av, int *pipe_fd, char **envp)
 
 	infile = open(av[1], O_RDONLY);
 	if (infile == -1)
+	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
 		ft_perror("open");
+	}
 	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 		ft_perror("dup2");
 	if (dup2(infile, STDIN_FILENO) == -1)
@@ -35,7 +39,11 @@ void	ft_scd_cmd(char **av, int *pipe_fd, char **envp)
 
 	outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (outfile == -1)
+	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
 		ft_perror("open");
+	}
 	if (dup2(pipe_fd[0], STDIN_FILENO) == -1)
 		ft_perror("dup2");
 	if (dup2(outfile, STDOUT_FILENO) == -1)
@@ -48,7 +56,7 @@ void	ft_scd_cmd(char **av, int *pipe_fd, char **envp)
 
 char	**ft_path(char **envp)
 {
-	int	i;
+	int		i;
 	char	**cmd_path;
 
 	i = 0;
@@ -57,11 +65,11 @@ char	**ft_path(char **envp)
 		if (!ft_strncmp("PATH", envp[i], 4))
 		{
 			cmd_path = ft_split(envp[i] + 5, ':');
-			return(cmd_path);
+			return (cmd_path);
 		}
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }
 
 char	*ft_find_path(char **cmd, char **envp)
@@ -70,7 +78,6 @@ char	*ft_find_path(char **cmd, char **envp)
 	char	*join;
 	char	*search;
 	char	**cmd_path;
-
 
 	cmd_path = ft_path(envp);
 	if (cmd_path == NULL)
